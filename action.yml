@@ -5,7 +5,7 @@ inputs:
   action:
     description: create or stop a FerretDB instance
     required: true
-    default: start
+    default: "start"
 
 runs:
   using: "composite"
@@ -19,3 +19,5 @@ runs:
       if: ${{ inputs.action }} == "stop"
       run: docker stop ferretdb
       shell: bash
+
+      # TODO: See action workflow report docker stops instance twice???
