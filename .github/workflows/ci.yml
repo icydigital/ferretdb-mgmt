@@ -1,0 +1,12 @@
+name: Setup FerretDB instance
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Start and stop FerretDB instance
+        uses: ./

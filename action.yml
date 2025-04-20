@@ -1,0 +1,6 @@
+name: "Setup FerretDB Action"
+description: "Handle / Start and stops FerretDB instance"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
