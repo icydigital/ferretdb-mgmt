@@ -11,13 +11,15 @@ runs:
   using: "composite"
   steps:
     - name: Start ferretdb container
-      if: ${{ inputs.action == "start" }}
-      run: docker run -d --rm --name ferretdb -p 27017:27017 --platform linux/amd64 ghcr.io/ferretdb/ferretdb-eval:2 
+      if: ${{ inputs.action == 'start' }}
+      run: |
+        docker run -d --rm --name ferretdb -p 27017:27017 --platform linux/amd64 ghcr.io/ferretdb/ferretdb-eval:2 
       shell: bash
 
     - name: Stop ferretdb container
-      if: ${{ inputs.action == "stop" }}
-      run: docker stop ferretdb
+      if: ${{ inputs.action == 'stop' }}
+      run: |
+        docker stop ferretdb
       shell: bash
 
       # TODO: See action workflow report docker stops instance twice???
